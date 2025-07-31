@@ -8,10 +8,10 @@ if (!fs.existsSync(destFolder)) {
     fs.mkdirSync(destFolder);
 }
 
-fs.copyFileSync(path.join(srcFolder, 'ort-wasm.wasm'), path.join(destFolder, 'ort-wasm.wasm'));
-fs.copyFileSync(path.join(srcFolder, 'ort-wasm-simd.wasm'), path.join(destFolder, 'ort-wasm-simd.wasm'));
-fs.copyFileSync(path.join(srcFolder, 'ort-wasm-threaded.wasm'), path.join(destFolder, 'ort-wasm-threaded.wasm'));
-fs.copyFileSync(path.join(srcFolder, 'ort-wasm-simd-threaded.wasm'), path.join(destFolder, 'ort-wasm-simd-threaded.wasm'));
+// fs.copyFileSync(path.join(srcFolder, 'ort-wasm.wasm'), path.join(destFolder, 'ort-wasm.wasm'));
+// fs.copyFileSync(path.join(srcFolder, 'ort-wasm-simd.wasm'), path.join(destFolder, 'ort-wasm-simd.wasm'));
+// fs.copyFileSync(path.join(srcFolder, 'ort-wasm-threaded.wasm'), path.join(destFolder, 'ort-wasm-threaded.wasm'));
+// fs.copyFileSync(path.join(srcFolder, 'ort-wasm-simd-threaded.wasm'), path.join(destFolder, 'ort-wasm-simd-threaded.wasm'));
 fs.copyFileSync(path.join(srcFolder, 'ort.min.js'), path.join(destFolder, 'ort.min.js'));
 
 destFolder = path.join(__dirname, 'public', 'js');
@@ -19,7 +19,7 @@ if (!fs.existsSync(destFolder)) {
     fs.mkdirSync(destFolder);
 }
 
-srcFolder = path.join(__dirname, 'node_modules', 'faceplugin', 'model');
+srcFolder = path.join(__dirname, 'node_modules', 'faceplugin-face-recognition-js', 'model');
 destFolder = path.join(__dirname, 'public', 'model');
 if (!fs.existsSync(destFolder)) {
     fs.mkdirSync(destFolder);
@@ -34,7 +34,7 @@ fs.copyFileSync(path.join(srcFolder, 'fr_feature.onnx'), path.join(destFolder, '
 fs.copyFileSync(path.join(srcFolder, 'fr_age.onnx'), path.join(destFolder, 'fr_age.onnx'));
 fs.copyFileSync(path.join(srcFolder, 'fr_gender.onnx'), path.join(destFolder, 'fr_gender.onnx'));
 
-srcFolder = path.join(__dirname, 'node_modules', 'faceplugin', 'js');
+srcFolder = path.join(__dirname, 'node_modules', 'faceplugin-face-recognition-js', 'js');
 destFolder = path.join(__dirname, 'public', 'js');
 fs.copyFileSync(path.join(srcFolder, 'opencv.js'), path.join(destFolder, 'opencv.js'));
 fs.copyFileSync(path.join(srcFolder, 'opencv_js.js'), path.join(destFolder, 'opencv_js.js'));

@@ -1,7 +1,7 @@
 
 import './App.css';
 import { useState,useRef,useEffect } from 'react';
-import * as FaceSDK from "faceplugin"
+import * as FaceSDK from "faceplugin-face-recognition-js"
 
 
 function App() {
@@ -17,7 +17,9 @@ function App() {
   const [genderSession,setGenderSession] = useState(null);
   const [ageSession,setAgeSession] = useState(null);
   const [featureSession,setFeatureSession] = useState(null);
-  const [canvasImg,setCanvasImg] = useState('1.jpg');
+  const [canvasImg,setCanvasImg] = useState('6.png');
+  const [canvasWidth, setCanvasWidth] = useState(640);
+  const [canvasHeight, setCanvasHeight] = useState(480);
 
   let canvas = useRef();
 
@@ -25,7 +27,16 @@ function App() {
     const context = canvas.current.getContext("2d");
     const img1 = new Image();
     img1.onload = function () {
-      context.drawImage(img1, 0, 0, 640, 480);
+      // Update canvas dimensions to match image dimensions
+      setCanvasWidth(img1.naturalWidth);
+      setCanvasHeight(img1.naturalHeight);
+      
+      // Set canvas size to match image
+      canvas.current.width = img1.naturalWidth;
+      canvas.current.height = img1.naturalHeight;
+      
+      // Draw image at full size
+      context.drawImage(img1, 0, 0, img1.naturalWidth, img1.naturalHeight);
     };
     img1.src = canvasImg;
   };
@@ -36,6 +47,13 @@ function App() {
   useEffect(() => {
     draw();
   },[canvasImg]);
+
+  useEffect(() => {
+    if (canvas.current) {
+      canvas.current.width = canvasWidth;
+      canvas.current.height = canvasHeight;
+    }
+  }, [canvasWidth, canvasHeight]);
 
   useEffect(() => {
     window.onload = function () {
@@ -424,18 +442,21 @@ function App() {
         <div className="flex flex-col">
           <div className="relative">
               <select onChange={changeImage} className="px-6 py-2 font-semibold text-white bg-gray-800 rounded-md hover:opacity-95 focus:outline-none">
-                  <option value="1.jpg">1.jpg</option>
-                  <option value="2.jpg">2.jpg</option>
+                  <option value="6.png">6.png</option>
+                  {/* <option value="2.png">2.png</option>
                   <option value="3.png">3.png</option>
-                  <option value="4.jpg">4.jpg</option>
-                  <option value="5.jpg">5.jpg</option>
-                  <option value="6.jpg">6.jpg</option>
-                  <option value="7.jpg">7.jpg</option>
-                  <option value="8.jpg">8.jpg</option>
-                  <option value="9.jpg">9.jpg</option>
+                  <option value="4.png">4.png</option>
+                  <option value="5.png">5.png</option>
+                  <option value="6.png">6.png</option> */}
               </select>
           </div>
-          <canvas ref={canvas} id="live-canvas" height={480} width={640} />
+          <canvas 
+            ref={canvas} 
+            id="live-canvas" 
+            width={canvasWidth} 
+            height={canvasHeight}
+            style={{ maxWidth: '100%', maxHeight: '80vh', objectFit: 'contain' }}
+          />
           
         </div>
         <div className="">
