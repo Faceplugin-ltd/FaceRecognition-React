@@ -17,7 +17,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "node post-install.js"
   },
   "eslintConfig": {
     "extends": [
