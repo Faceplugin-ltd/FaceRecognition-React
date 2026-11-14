@@ -7,7 +7,7 @@
 
 # Face Recognition SDK React Demo
 ## Overview
-Explore **Completely free and open source** `face recognition React Plugin` from [Faceplugin](https://faceplugin.com/) Top-ranked on NIST FRVT , coupled with an advanced `iBeta level 2 liveness detection` engine that effectively safeguards against **printed photos, video replay, 3D masks, and deepfake threats**, ensuring top-tier security.
+Explore the **completely free and open-source** `face recognition React plugin` from [Faceplugin](https://faceplugin.com/), **evaluated in NIST FRTE (formerly FRVT)**, paired with an advanced `passive liveness detection` engine, tested internally following ISO/IEC 30107-3 methodology, that guards against **printed photos, video replays and 3D masks**, with added protection against **deepfake threats**.
 <br>This is `on-premise face recognition SDK` which means everything is processed in your phone and **NO** data leaves the device.
 <br></br>
 
